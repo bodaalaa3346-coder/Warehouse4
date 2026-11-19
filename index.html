@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Search inventory | Smart Warehouse</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <img class="brand-mark" src="logo.svg" alt="Smart Warehouse">
+      </div>
+      
+      <nav class="navigation" aria-label="Main navigation">
+        <div class="nav-heading">OPERATIONS</div>
+        <a class="nav-link" href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</a>
+        <a class="nav-link" href="#"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>Alerts <span class="nav-count">5</span></a>
+        <a class="nav-link active" href="#" aria-current="page"><svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 5v9l9 5 9-5V8M12 13v9"/></svg>Inventory</a>
+        <a class="nav-link" href="#"><svg viewBox="0 0 24 24"><path d="M4 5v14M8 5v14M12 5v14M16 5v14M20 5v14"/></svg>Products</a>
+        <div class="nav-gap"></div>
+        <div class="nav-heading">PLANNING</div>
+        <a class="nav-link" href="#"><svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-9M15 6h6v6"/></svg>AI forecast</a>
+        <a class="nav-link" href="#"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 2h6v4H9zm0 9h6m-6 4h6m-6 4h3"/></svg>Purchase orders <span class="nav-count">6</span></a>
+        <a class="nav-link" href="#"><svg viewBox="0 0 24 24"><path d="M3 7h12v12H3zM15 11h4l3 4v4h-7zM7 19a2 2 0 1 0 4 0m7 0a2 2 0 1 0 4 0"/></svg>Suppliers</a>
+        <a class="nav-link" href="#"><svg viewBox="0 0 24 24"><path d="M5 20v-7m7 7V4m7 16v-11"/></svg>Reports</a>
+      </nav>
+      <div class="profile">
+        <div class="avatar">WM</div>
+        <div class="profile-copy"><div class="profile-name">Warehou...</div><div class="profile-role">Manager</div></div>
+        <button class="team" id="usersToggle" type="button" aria-label="Active users" aria-expanded="false" aria-controls="usersPopup"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="white" stroke-width="2.2"><circle cx="12" cy="9" r="5"/><path d="M2 28v-3c0-5 4-8 10-8s10 3 10 8v3M22 5a5 5 0 0 1 0 10m2 2c4 1 6 4 6 8v3"/></svg><b class="team-count">5</b></button>
+      </div>
+    </aside>
+
+    <section class="users-popup" id="usersPopup" role="dialog" aria-label="Active users" dir="ltr" hidden>
+      <header class="users-header">
+        <div><strong>Active users</strong><span>Signed in to the website</span></div>
+        <span class="users-online"><i></i>5 online</span>
+      </header>
+      <div class="users-scroll-area">
+        <div class="users-list" id="usersList" role="list" aria-label="Online users">
+        <div class="user-row" role="listitem"><span class="user-avatar avatar-ah">AH<i></i></span><span class="user-copy"><strong>Ahmed Hassan</strong><small>ahmed@smartwh.com</small></span><span class="user-role">Employee</span></div>
+        <div class="user-row" role="listitem"><span class="user-avatar avatar-sm">SM<i></i></span><span class="user-copy"><strong>Sara Mostafa</strong><small>sara@smartwh.com</small></span><span class="user-role">Employee</span></div>
+        <div class="user-row" role="listitem"><span class="user-avatar avatar-ka">KA<i></i></span><span class="user-copy"><strong>Karim Adel</strong><small>karim@supplier.com</small></span><span class="user-role merchant">Merchant</span></div>
+        <div class="user-row" role="listitem"><span class="user-avatar avatar-ny">NY<i></i></span><span class="user-copy"><strong>Nour Youssef</strong><small>nour@smartwh.com</small></span><span class="user-role">Employee</span></div>
+        <div class="user-row" role="listitem"><span class="user-avatar avatar-mt">MT<i class="idle"></i></span><span class="user-copy"><strong>Mona Tarek</strong><small>Active 8 min ago</small></span><span class="user-role merchant">Merchant</span></div>
+      </div>
+      </div>
+      <footer class="users-manager"><span class="user-avatar avatar-wm">WM</span><span class="user-copy"><strong>Warehouse Manager</strong><small>Admin</small></span><button type="button" class="users-signout" aria-label="Sign out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 17l-5-5 5-5M3 12h9m0-8h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7"/></svg></button></footer>
+    </section>
+    <main class="main">
+      <header class="topbar">
+        <button class="back" id="backButton" type="button">&#8592;&nbsp; Back</button>
+        <div class="top-actions">
+          <div class="language-switch" aria-label="Language"><button class="selected" type="button">English</button><button type="button" lang="ar" dir="rtl">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</button></div>
+          <button class="notification" type="button" aria-label="Notifications"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 8-3 10h18c0-2-3-3-3-10M10 22h4"/></svg></button>
+        </div>
+      </header>
+
+      <h1>Search inventory</h1>
+
+      <section class="search-controls" aria-label="Inventory search">
+        <div class="search-by" id="searchBy">
+          <button class="search-by-toggle" id="searchByToggle" type="button" aria-expanded="false" aria-haspopup="listbox">
+            <span class="search-by-label">SEARCH BY</span>
+            <span class="search-by-value" id="searchByValue">Company name</span>
+          </button>
+          <span class="chevron" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></svg></span>
+          <div class="search-menu" id="searchMenu" role="listbox" aria-label="Search field">
+            <button type="button" role="option" data-field="All fields">All fields</button>
+            <button type="button" role="option" data-field="Product name">Product name</button>
+            <button type="button" role="option" data-field="SKU">SKU</button>
+            <button type="button" role="option" data-field="Company name">Company name</button>
+            <button type="button" role="option" data-field="Order number">Order number</button>
+            <button type="button" role="option" data-field="Category">Category</button>
+          </div>
+        </div>
+        <label class="searchbox">
+          <span class="search-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path class="search-handle" d="m15.3 15.3 5.2 5.2"/><path class="search-glint" d="M7.3 8.4a4 4 0 0 1 3-1.9"/></svg></span>
+          <input id="searchInput" type="search" placeholder="Product" aria-label="Search inventory" maxlength="100" autocomplete="off">
+        </label>
+      </section>
+
+      <p class="summary" id="summary" aria-live="polite">Showing results for &#8220;<strong>Product</strong>&#8221; in <strong>Product name</strong> &middot; 3 results</p>
+
+      <section class="results-panel" id="resultsPanel" aria-label="Inventory search results">
+        <table class="inventory-table">
+          <tbody id="inventoryRows">
+            <tr data-name="product 1" data-sku="sku-2210" data-zone="zone a-12"><td class="product-cell"><div class="product"><span class="product-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM9 4v16m6-16v16"/></svg></span><span><span class="product-name">product 1</span><span class="product-meta">SKU-2210 &middot; Zone A-12</span></span></div></td><td class="status-cell"><span class="status">OK</span></td><td class="stock-cell"><span class="stock">148 in stock</span></td></tr>
+            <tr data-name="product 2" data-sku="sku-3087" data-zone="zone a-14"><td class="product-cell"><div class="product"><span class="product-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM9 4v16m6-16v16"/></svg></span><span><span class="product-name">product 2</span><span class="product-meta">SKU-3087 &middot; Zone A-14</span></span></div></td><td class="status-cell"><span class="status low">Low</span></td><td class="stock-cell"><span class="stock">31 in stock</span></td></tr>
+            <tr data-name="product 3" data-sku="sku-1042" data-zone="zone b-02"><td class="product-cell"><div class="product"><span class="product-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM9 4v16m6-16v16"/></svg></span><span><span class="product-name">product 3</span><span class="product-meta">SKU-1042 &middot; Zone B-02</span></span></div></td><td class="status-cell"><span class="status">OK</span></td><td class="stock-cell"><span class="stock">60 in stock</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+      <div class="empty" id="emptyState">No matching inventory found.</div>
+      <footer class="footer"><span class="copyright">&#169;</span> 2027 Smart Warehouse. All rights reserved.</footer>
+    </main>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
